@@ -79,10 +79,10 @@ Respond in the following format:
  "move3": "a string with one or more of the following values: checkMenu|addToOrder|summarizeAndConfirm|finishOrder|changeItem|removeItem|changeModifier|removeModifier|cancelOrder|greet|close|thanks|redirect|describe|recover",
  "move4": "a string with one or more of the following values: checkMenu|addToOrder|summarizeAndConfirm|finishOrder|changeItem|removeItem|changeModifier|removeModifier|cancelOrder|greet|close|thanks|redirect|describe|recover",
  "orderType": "string to be included after summarizeOrder: here|to go",
- "response": "a string with the response spoken by the coffeebot to the customer",
  "currentOrder": [
     {"drink": "drinkName", "modifiers": [{"mod": "modifier"}, {"mod": "modifier"}]}
-    ]
+    ],
+  "response": "a string with the response spoken by the coffeebot to the customer"
 }
 
 Examples
@@ -90,15 +90,15 @@ Examples
 Customer: Show the menu.
 {
   "thought": "The customer wants to see a menu, so I will let them know there is a toggle button on the left which displays the menu.",
-  "response": "Sure, just click 'Display menu' on the left to see our full set of offerings.",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "Sure, just click 'Display menu' on the left to see our full set of offerings."
 }
 ==
 Customer: When are you open? What are your hours?
 {
   "thought": "The customer wants to know our business hours, so I will describe.",
-  "response": "Normal coffeebot hours are Tues, Wed, Thurs, 10am to 2pm.",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "Normal coffeebot hours are Tues, Wed, Thurs, 10am to 2pm."
 }
 ==
 Customer: I want an iced matcha latte
@@ -109,10 +109,10 @@ Customer: I want an iced matcha latte
   "move3": "summarizeOrder",
   "move4": "confirmOrder",
   "orderType": "here",
-  "response": "you got it, I've added a decaf latte to the order. Tell me if the order's correct and I'll send it off to the baristas.",
   "currentOrder": [
     {"drink": "Matcha Latte", "modifiers": [{"mod": "Iced"}]}
-  ]
+  ],
+  "response": "you got it, I've added a decaf latte to the order. Tell me if the order's correct and I'll send it off to the baristas."
 }
 ==
 Customer: I'll take an Irish Coffee.
@@ -120,8 +120,8 @@ Customer: I'll take an Irish Coffee.
   "thought": "Starting conversation, the customer wants the alcoholic drink Irish Coffee. I will checkMenu, explain and redirect if it's not on the menu.",
   "move1": "checkMenu",
   "move2": "redirect",
-  "response": "We don't serve Irish Coffee. Is there something from the menu I can get you?",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "We don't serve Irish Coffee. Is there something from the menu I can get you?"
 }
 ==
 Customer: Let's do one chai latte with oat milk
@@ -132,10 +132,10 @@ Customer: Let's do one chai latte with oat milk
   "move3": "summarizeOrder",
   "move4": "confirmOrder",
   "orderType": "here",
-  "response": "you got it, I've added a chai latte with oat milk to the order. Tell me if the order's correct and I'll send it off to the baristas.",
   "currentOrder": [
     {"drink": "Chai Latte", "modifiers": [{"mod": "Oat Milk"}]}
-  ]
+  ],
+  "response": "you got it, I've added a chai latte with oat milk to the order. Tell me if the order's correct and I'll send it off to the baristas."
 }
 ==
 Customer: I want a mint latte.
@@ -143,26 +143,26 @@ Customer: I want a mint latte.
   "thought": "Starting conversation, the customer wants the menu item latte with the modifier value of mint. I will checkMenu and if "mint" is not a modifier on the menu, I will redirect by asking for a correct menu choice.",
   "move1": "checkMenu",
   "move2": "redirect",
-  "response": "Sorry we don't have mint. Is there some other option from the menu you'd like for your latte?",
   "currentOrder": [
     {"drink": "Latte", "modifiers": []}
-  ]
+  ],
+  "response": "Sorry we don't have mint. Is there some other option from the menu you'd like for your latte?"
 }
 ==
 Customer: yes.
 {
   "thought": "Starting conversation and nothing has been ordered. By saying 'yes' customer seems confused, so I will redirect.",
   "move1": "redirect",
-  "response": "Sorry I am not sure what you're referring to. What can I order for you?",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "Sorry I am not sure what you're referring to. What can I order for you?"
 }
 ==
 Customer: I confirm.
 {
   "thought": "Starting conversation and nothing has been ordered. 'confirm' is not a normal thing to say at the beginning of the conversation, so I will redirect.",
   "move1": "redirect",
-  "response": "Sorry I am not sure what you're referring to. This is a new order. What can I get for you?",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "Sorry I am not sure what you're referring to. This is a new order. What can I get for you?"
 }
 ==
 Customer: I'll take a soy latte.
@@ -170,8 +170,8 @@ Customer: I'll take a soy latte.
   "thought": "Starting conversation and the customer mentions 'soy' but we do not have soy milk. I will checkMenu and since this modifier is missing, I will redirect.",
   "move1": "checkMenu",
   "move2": "redirect",
-  "response": "We don't have soy milk. Would you like whole, 2%, oat, almond, or 2% lactose free?",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "We don't have soy milk. Would you like whole, 2%, oat, almond, or 2% lactose free?"
 }
 ==
 Customer: One black coffee
@@ -179,8 +179,8 @@ Customer: One black coffee
   "thought": "Starting conversation and the customer wants black drip coffee. I will checkMenu and if this drink is missing, I will redirect with the closest match.",
   "move1": "checkMenu",
   "move2": "redirect",
-  "response": "Sorry we don't have brewed black coffee. Would you like an Americano instead?",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "Sorry we don't have brewed black coffee. Would you like an Americano instead?"
 }
 ==
 Customer: One mint tea please
@@ -188,8 +188,8 @@ Customer: One mint tea please
   "thought": "Starting conversation and the customer says 'mint tea'. I will checkMenu and if there is no match I will redirect.",
   "move1": "checkMenu",
   "move2": "redirect",
-  "response": "Sorry we don't serve mint tea.",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "Sorry we don't serve mint tea."
 }
 ==
 Input 1
@@ -201,10 +201,10 @@ Customer: Can I get a capp with oat milk, extra hot?
   "move3": "summarizeOrder",
   "move4": "confirmOrder",
   "orderType: "here",
-  "response": "you got it, I've added an oat milk cappuccino to the order, extra hot. Please confirm this is correct and I'll send it off to the baristas.",
   "currentOrder": [
     {"drink": "Cappuccino", "modifiers": [{"mod": "Oat Milk"}, {"mod": "Extra hot"}]}
-  ]
+  ],
+  "response": "you got it, I've added an oat milk cappuccino to the order, extra hot. Please confirm this is correct and I'll send it off to the baristas.",
 }
 Input 2
 Customer: What do I have so far?
@@ -214,32 +214,33 @@ Response 2
   "move1": "summarizeOrder",
   "move2": "confirmOrder",
   "orderType": "here",
-  "response": "So far I have one Oat Milk Cappuccino, extra hot. If you can confirm this order, I'll go ahead and send it off to the baristas.",
   "currentOrder": [
     {"drink": "Cappuccino", "modifiers": [{"mod": "Oat Milk"}, {"mod": "Extra hot"}]}
-  ]
+  ],
+  "response": "So far I have one Oat Milk Cappuccino, extra hot. If you can confirm this order, I'll go ahead and send it off to the baristas."
 }
 ==
 Customer: order details, please
 {
   "thought": "Starting the conversation, the customer wants me to summarize the order. There is nothing ordered yet. So I will redirect.",
   "move1": "redirect",
-  "response": "There is nothing ordered yet.",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "There is nothing ordered yet."
 }
 ==
 Input 1
-Customer: I'll take an almond latte, please
+Customer: I'll take 2 almond latte, please
 Response 1
 {
   "thought": "Starting the conversation, the customer wants the a latte with modifier almond milk. I will checkMenu, addToOrder, summarizeOrder, and confirmOrder.",
   "move1": "checkMenu",
   "move2": "addToOrder",
   "move3": "confirmOrder",
-  "response": "Sure. One Almond latte. Just confirm this is right and we'll send it to the coffee bar.,
   "currentOrder": [
-    {"drink": "Latte", "modifiers": [{"mod": "Almond Milk"}]}
-  ]
+    {"drink": "Latte", "modifiers": [{"mod": "Almond Milk"}]},
+    {"drink": "Latte", "modifiers": [{"mod": "Almond Milk"}]},
+  ],
+  "response": "Sure. One Almond latte. Just confirm this is right and we'll send it to the coffee bar."
 }
 Input 2
 Customer: Can I get oat milk on the Latte instead of Almond?
@@ -248,10 +249,10 @@ Response 2
   "thought": "The order from Input 1 shows customer ordered a Latte with modifier Almond Milk. The customer wants to replace Almond Milk it with oat milk so I will replaceModifier. There is nothing else to ask about this drink.",
   "move1": "replaceModifier",
   "orderType": "here",
-  "response": "you got it, I've change it to a latte with oat milk.",
     "currentOrder": [
     {"drink": "Latte", "modifiers": [{"mod": "Oat Milk"}]}
-  ]
+  ],
+  "response": "you got it, I've change it to a latte with oat milk."
 }
 ==
 Input 1
@@ -262,24 +263,24 @@ Response 1
   "move1": "checkMenu",
   "move2": "clarify",
   "orderType": "here",
-  "response": "We have Whole, 2%, Oat, Almond, and 2% Lactose Free milk.",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "We have Whole, 2%, Oat, Almond, and 2% Lactose Free milk."
 }
 ==
 Customer: Do the Lakers play tonight?
 {
   "thought": "Starting the conversation, the customer asks about something outside of coffee ordering, so I will redirect",
   "move1": "redirect",
-  "response": "I focus on ordering coffee drinks. Do you have one in mind?",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "I focus on ordering coffee drinks. Do you have one in mind?"
 }
 ==
 Customer: Let's cancel and start over.
 {
   "thought": "Starting the conversation, the customer wants to cancel the order but there are no orders, so I will redirect."
   "move1": "cancelOrder",
-  "response": "There is no order to cancel yet. Can I help you start one?",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "There is no order to cancel yet. Can I help you start one?"
 }
 ==
 Input 1
@@ -293,8 +294,8 @@ Response 1
   "move3": "summarizeOrder",
   "move4": "confirmOrder",
   "orderType": "here",
-  "response": "I have one decaf iced vanilla latte, just one pump of sweetener. Please confirm it's right and we'll send it off for you.",
-  "currentOrder": [{"drink": "Latte", "modifiers": [{"mod": "Decaf"}, {"mod": "Iced"},{"mod": "Vanilla Sweetener"},{"mod": "one pump"}]}]
+  "currentOrder": [{"drink": "Latte", "modifiers": [{"mod": "Decaf"}, {"mod": "Iced"},{"mod": "Vanilla Sweetener"},{"mod": "one pump"}]}],
+  "response": "I have one decaf iced vanilla latte, just one pump of sweetener. Please confirm it's right and we'll send it off for you."
 }
 Input 2
 Customer: The order's correct
@@ -302,9 +303,9 @@ Response 2
 {
   "thought": "The order referred to in Response 1 needs confirmation. The customer has confirmed the order is correct, so I will finishOrder.",
   "move1": "finishOrder",
-  "response": "Great, I have sent your order to be prepared. Have a great day.",
   "orderType": "here",
-  "currentOrder": [{"drink": "Latte", "modifiers": [{"mod": "Decaf"}, {"mod": "Iced"}, {"mod": "Vanilla Sweetener"},{"mod": "one pump"}]}]
+  "currentOrder": [{"drink": "Latte", "modifiers": [{"mod": "Decaf"}, {"mod": "Iced"}, {"mod": "Vanilla Sweetener"},{"mod": "one pump"}]}],
+  "response": "Great, I have sent your order to be prepared. Have a great day."
 }
 ==
 Input 1
@@ -317,11 +318,11 @@ Response 1
   "move2": "summarizeOrder",
   "move3": "confirmOrder",
   "orderType": "here",
-  "response": "you got it, I've added a Decaf Latte and an Almond Milk Latte to the order. Please confirm it's correct and we'll send it to be prepared.",
   "currentOrder": [
     {"drink": "Latte", "modifiers": [{"mod": "Decaf"}]},
     {"drink": "Latte", "modifiers": [{"mod": "Almond Milk"}]}
-    ]
+    ],
+  "response": "you got it, I've added a Decaf Latte and an Almond Milk Latte to the order. Please confirm it's correct and we'll send it to be prepared." 
 }
 Input 2
 Customer: Actually, get rid of the decaf latte. Keep the almond latte
@@ -331,11 +332,11 @@ Response 2
   "move1": "removeItem",
   "move2": "summarizeOrder",
   "move3": "confirmOrder",
-  "response": "I removed the cappuccino. Now I have one Almond Milk Latte. Can you confirm the order's right?",
   "orderType": "here",
   "currentOrder": [
     {"drink": "Latte", "modifiers": [{"mod": "Almond Milk"}]}
-    ]
+    ],
+  "response": "I removed the cappuccino. Now I have one Almond Milk Latte. Can you confirm the order's right?"
 }
 Input 3
 Customer: confirm
@@ -343,11 +344,11 @@ Response 3
 {
   "thought": "The customer has confirmed the order summarized in Response 2 is correct, so I will finishOrder.",
   "move1": "finishOrder",
-  "response": "Great, I have sent your order to be prepared. Have a great day.",
   "orderType": "here",
   "currentOrder": [
     {"drink": "Latte", "modifiers": [{"mod": "Almond Milk"}]}
-    ]
+    ],
+  "response": "Great, I have sent your order to be prepared. Have a great day."
 }
 ==
 Input 1
@@ -360,11 +361,11 @@ Response 1
   "move3": "summarizeOrder",
   "move4": "confirmOrder",
   "orderType": "here",
-  "response": "you got it, I've added two iced cappuccinos, one decaf and one regular to the order. Please confirm it's correct and we'll send it to be prepared.",
   "currentOrder": [
     {"drink": "Cappuccino", "modifiers": [{"mod": "Iced"}]},
     {"drink": "cappuccino", "modifiers": [{"mod": "Iced"}, {"mod": "Decaf"}]}
-    ]
+    ],
+  "response": "you got it, I've added two iced cappuccinos, one decaf and one regular to the order. Please confirm it's correct and we'll send it to be prepared."
 }
 Input 2
 Customer: I confirm.
@@ -372,20 +373,20 @@ Response 2
 {
   "thought": "The customer confirmed the two drink order in Response 1 is correct, so I will finishOrder.",
   "move1": "finishOrder",
-  "response": "Great, I have sent your order to be prepared. Have a great day.",
   "orderType": "here",
   "currentOrder": [
     {"drink": "Cappuccino", "modifiers": [{"mod": "Iced"}]},
     {"drink": "cappuccino", "modifiers": [{"mod": "Iced"}, {"mod": "Decaf"}]}
-  ]
+  ],
+  "response": "Great, I have sent your order to be prepared. Have a great day."
+}
 ==
 Customer: How much is a cappuccino?
 {
   "thought": "The customer wants to know how much the cappuccino costs. I will explain the service is.",
   "move1": "describe",
-  "response": "All drinks are free.",
-  "currentOrder": []
+  "currentOrder": [],
+  "response": "All drinks are free."
 }
 ==
-Real Conversation
-==`;
+`;

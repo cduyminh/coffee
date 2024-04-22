@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import { ICurrentResponses } from "../interface";
 
 const SidebarContainer = styled.div`
   width: 300px;
@@ -13,11 +14,17 @@ const MenuItem = styled.div`
   margin-bottom: 10px;
 `;
 
-const MenuSidebar: React.FC = () => {
+const MenuSidebar = ({ currentResponse = {} as ICurrentResponses }) => {
   return (
     <SidebarContainer>
-      <MenuItem>Cappuccino</MenuItem>
-      <MenuItem>Latte</MenuItem>
+      {currentResponse?.currentOrder?.map((order) => {
+        return (
+          <MenuItem>
+            <h3>{order?.drink}</h3>{" "}
+            <p>{order?.modifiers?.map((modifier) => modifier?.mod)}</p>
+          </MenuItem>
+        );
+      })}
       {/* Add other menu items similarly */}
     </SidebarContainer>
   );
